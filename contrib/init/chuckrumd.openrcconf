@@ -1,0 +1,33 @@
+# /etc/conf.d/chuckrumd: config file for /etc/init.d/chuckrumd
+
+# Config file location
+#CHUCKRUMD_CONFIGFILE="/etc/chuckrum/chuckrum.conf"
+
+# What directory to write pidfile to?  (created and owned by $CHUCKRUMD_USER)
+#CHUCKRUMD_PIDDIR="/var/run/chuckrumd"
+
+# What filename to give the pidfile
+#CHUCKRUMD_PIDFILE="${CHUCKRUMD_PIDDIR}/chuckrumd.pid"
+
+# Where to write chuckrumd data (be mindful that the blockchain is large)
+#CHUCKRUMD_DATADIR="/var/lib/chuckrumd"
+
+# User and group to own chuckrumd process
+#CHUCKRUMD_USER="chuckrum"
+#CHUCKRUMD_GROUP="chuckrum"
+
+# Path to chuckrumd executable
+#CHUCKRUMD_BIN="/usr/bin/chuckrumd"
+
+# Nice value to run chuckrumd under
+#CHUCKRUMD_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#CHUCKRUMD_OPTS=""
+
+# The timeout in seconds OpenRC will wait for chuckrumd to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+CHUCKRUMD_SIGTERM_TIMEOUT=60
