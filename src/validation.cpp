@@ -1092,7 +1092,7 @@ bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus:
 
     // Check the header
     if(block.GetHash() != consensusParams.hashGenesisBlock){
-        if (!CheckProofOfWork(block.GetHash(), block.nBits, consensusParams))
+        if (!CheckProofOfWork(block.GetHash(), block.nBits, consensusParams))https://github.com/chuckrum-core/docs/blob/master/gitian-building.md
             return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
     }
     return true;
