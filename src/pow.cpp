@@ -10,13 +10,17 @@
 #include <primitives/block.h>
 #include <uint256.h>
 #include <stdio.h>
+#include <logging.h>
 
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
 {
     assert(pindexLast != nullptr);
 
     unsigned int nProofOfWorkLimit = UintToArith256(params.powLimit).GetCompact();
+<<<<<<< HEAD
 
+=======
+>>>>>>> f76d7718b1c961f2f6d1f94e4832ed77448f3c90
     // Only change once per difficulty adjustment interval
     if ((pindexLast->nHeight+1) % params.DifficultyAdjustmentInterval() != 0)
     {
@@ -32,9 +36,6 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
             {
                 // Return the last non-special-min-difficulty-rules-block
                 const CBlockIndex* pindex = pindexLast;
-                if(pindex->nHeight == 0){
-                    return nProofOfWorkLimit;
-                }
                 while (pindex->pprev && pindex->nHeight % params.DifficultyAdjustmentInterval() != 0 && pindex->nBits == nProofOfWorkLimit)
                     pindex = pindex->pprev;
                 return pindex->nBits;
@@ -84,7 +85,10 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&
     arith_uint256 bnTarget;
 
     bnTarget.SetCompact(nBits, &fNegative, &fOverflow);
+<<<<<<< HEAD
     // Check range
+=======
+>>>>>>> f76d7718b1c961f2f6d1f94e4832ed77448f3c90
     if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(params.powLimit))
         return false;
 
@@ -92,5 +96,6 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&
     if (UintToArith256(hash) > bnTarget)
         return false;
 
+    printf("%s\n","trueeeeeeee");
     return true;
 }
