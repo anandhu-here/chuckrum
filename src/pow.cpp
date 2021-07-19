@@ -17,10 +17,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     assert(pindexLast != nullptr);
 
     unsigned int nProofOfWorkLimit = UintToArith256(params.powLimit).GetCompact();
-<<<<<<< HEAD
 
-=======
->>>>>>> f76d7718b1c961f2f6d1f94e4832ed77448f3c90
     // Only change once per difficulty adjustment interval
     if ((pindexLast->nHeight+1) % params.DifficultyAdjustmentInterval() != 0)
     {
@@ -85,10 +82,7 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&
     arith_uint256 bnTarget;
 
     bnTarget.SetCompact(nBits, &fNegative, &fOverflow);
-<<<<<<< HEAD
-    // Check range
-=======
->>>>>>> f76d7718b1c961f2f6d1f94e4832ed77448f3c90
+
     if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(params.powLimit))
         return false;
 
