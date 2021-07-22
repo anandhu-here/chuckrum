@@ -1092,11 +1092,6 @@ bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus:
 
 
 
-    if(block.GetHash() != consensusParams.hashGenesisBlock){
-        if (!CheckProofOfWork(block.GetHash(), block.nBits, consensusParams))
-            return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
-    }
-
     if (!CheckProofOfWork(block.GetHash(), block.nBits, consensusParams))
     	return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
     return true;
